@@ -1,0 +1,260 @@
+1.<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    body{
+      background-color:white ;
+     
+    }
+    h1{ background-color: deepskyblue;
+        display: block;
+    padding-bottom: 30px;
+    }
+p{
+  background-color: lightcyan;
+  padding-bottom:20px;
+}
+div{
+  background-color: lightsteelblue;
+  padding-bottom: 10px;
+  margin-bottom: 0px;
+}
+    </style>
+<body>
+  <h1>CSS background-color example!</h1>
+  <div>This is a text inside a div element.
+    <p>This paragraph has its own background color.</p>
+    We are still in the div element.
+  </div>
+    </body>
+  </head>
+</html>
+
+
+2.<!DOCTYPE html>
+<html>
+    <body>
+        <style>
+          body {background-color: lightcyan;}
+          h2{text-decoration-line: line-through; }
+          h3{text-decoration-line: underline;}
+        </style>
+        
+<h1>This is heading 1</h1>
+<h2>This is heading 2</h2>
+<h3>This is heading 3</h3>
+<h4>This is heading 4</h4>
+
+    </body>
+</html>
+
+
+3.<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<p>THIS IS SOME TEXT.</p>
+<p>This is some text.</p>
+<p>This is some text.</p>
+<style>
+    body{
+        background-color: lightcyan;
+    }
+</style>
+
+</body>
+</html>
+
+
+4.<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <p><b><a href="https://www.capgemini.com/" target="_blank">This is a link</a></b></p>
+<style>
+       body{
+        background-color: lightcyan;
+    }
+    a:link {
+    color: orange;
+  }
+  
+  a:visited {
+    color: 4px solid navy;
+  }
+  a:hover {
+    color: red;
+  }
+  a:active {
+    color: blue;
+  }
+</style>
+</body>
+</html>
+
+
+5.<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  <tr>
+    <td>Peter</td>
+    <td>Griffin</td>
+  </tr>
+  <tr>
+    <td>Lois</td>
+    <td>Griffin</td>
+  </tr>
+</table>
+    
+<style>
+        table, tr, th, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+
+</body>
+</html>
+
+
+6.<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="a">
+    <table>
+        <tr>
+            <th style="color: white; background-color: green;">Firstname</th>
+            <th style="color: white; background-color: green;">Lastname</th>
+            <th style="color: white; background-color: green;">Savings</th>
+        </tr>
+        <tr>
+            <td>Peter</td>
+            <td>Griffin</td>
+            <td>$100</td>
+        </tr>
+        <tr>
+            <td>Lois</td>
+            <td>Griffin</td>
+            <td>$150</td>
+        </tr>
+        <tr>
+            <td>Joe</td>
+            <td>Swanson</td>
+            <td>$300</td>
+        </tr>
+        <tr>
+            <td>Cleveland</td>
+            <td>Brown</td>
+            <td>$250</td>
+        </tr>
+    </table>
+</div>
+    <style>
+table,
+td {
+    border: 1px solid green;
+}
+</style>
+</body>
+</html>
+
+
+7.<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div>
+        <p><b>Note:</b> IE8 supports the outline properties only if a !DOCTYPE is specified.</p>
+    </div>
+    <style>
+
+body {
+    border: ridge
+}
+
+p {
+    border: 1px solid red;
+    outline-style: dotted;
+    outline-color: #00ff00;
+}
+</style>
+</body>
+</html>
+
+
+8.<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <h2 class="a">Some text</h2>
+
+    <h2 class="b">Some text</h2>
+
+    <h2 class="c">Some text</h2>
+
+    <h2 class="d" style="color: aliceblue;">Some text</h2>
+<script src="" async defer></script>
+
+    <style>
+        body {
+    border: ridge
+}
+        
+h2.a {
+    border-style: solid;
+    border-width: 10px;
+    background-color: aliceblue;
+}
+
+h2.b {
+    border-style: solid;
+    border-width: 5px;
+    background-color: aliceblue;
+}
+
+h2.c {
+    border-style: solid;
+    border-width: thin;
+    background-color: aliceblue;
+}
+
+h2.d {
+    border-style: solid;
+    border-width: 0px;
+    background-color: aliceblue;
+}
+    </style>
+</body>
+</html>
