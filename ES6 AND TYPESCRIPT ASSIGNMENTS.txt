@@ -1,0 +1,365 @@
+    ASSIGNMENT 1
+
+
+1.const pi=3.14;
+console.log(pi);
+//pi=45; //Error as Cannot assign to 'pi' because it is a constant.
+
+
+2.if(true){
+    let a=10;
+}
+//console.log(a);// Error as Cannot find name 'a'. Because let scope is block level
+
+
+3.let Order={
+    id:456,
+    title:'Assignment',
+    price:300,
+    printOrder(){
+        return this.id +" "+ this.title;
+    },
+    getPrice(){
+        return this.price;
+    }
+};
+//let copiedObj=Object.assign({},Order);
+
+
+4.class Object1{
+    name1;
+    length1;
+    constructor(name1:string){
+        this.name1 = name1;
+        this.length1 = name1.length;
+    }
+}
+
+let displayArray = (...objects: Array<object>) =>{
+    for(let i in objects)
+    console.log(objects[i]);
+}
+
+let names = ['john','snow','ned','stark'];
+let [name1, name2, name3,name4] = names;
+const obj1 = new Object1(name1);
+const obj2 = new Object1(name2);
+const obj3 = new Object1(name3);
+const obj4 = new Object1(name4);
+displayArray(obj1,obj2,obj3,obj4);
+let arr=[]
+
+
+5.var add = () => 21; 
+
+//5.b 
+function userFriends(username: string, ...friends: Array<string>){
+    console.log("username: ",username);
+    console.log("friends: ",friends);
+}
+
+userFriends('Tony Stark','Natasha','Thor','Steve Rogers','Hulk','grute');
+console.log("***********************************************************");
+
+//5.c
+function capitals(...names: Array<string>){
+    console.log();
+    for(let i in names)
+        console.log(names[i].toUpperCase());
+}
+
+capitals('Tony Stark','Natasha','Thor','Steve Rogers','Hulk','grute');
+console.log("***********************************************************");
+
+
+6.let laptop = "Dell", model = "Inspiron", deskno = 95648, client='ron';
+let ticket = `hi Sysnet, this is ${client} - deskNo.: ${deskno}, and my laptop: ${laptop}, 
+model: ${model}, isn't working. Request replacement.`;
+console.log(ticket);
+console.log("******************************************************************");
+
+
+7.let array = [10,20,30,40];
+let [ele1, ele2, ele3, ele4] = array;
+console.log("3rd element: ",ele3);
+console.log("****************************************************");
+
+//7.b
+let organization = {
+    nameObj: "Capgemini",
+    address: { country: "France", pincode: 25815}
+}
+let {nameObj, address: a} = organization;
+console.log("deep match destructured pincode: ",a.pincode);
+console.log("*****************************************************");
+
+
+8.class Account {
+    constructor(id, name, balance) {
+      (this.id = id), (this.name = name), (this.balance = balance);
+    }
+  }
+  
+  class SavingAccount extends Account {
+    constructor(id, name, balance, interest) {
+      super(id, name, balance);
+      this.interest = interest;
+    }
+  }
+  
+  class CurrentAccount extends Account {
+    constructor(id, name, balance, cashCredit) {
+      super(id, name, balance);
+      this.cashCredit = cashCredit;
+    }
+  }
+  
+  let totalBankBalance = (...accounts) => {
+    let totalBalance = 0;
+    accounts.forEach((singleAccount) => {
+      if (singleAccount.constructor.name === "SavingAccount") {
+        totalBalance =
+          totalBalance + singleAccount.balance + singleAccount.interest;
+      } else {
+        totalBalance += singleAccount.balance;
+        totalBalance -= singleAccount.cashCredit;
+      }
+    });
+    return totalBalance;
+  };
+  
+  const account1 = new SavingAccount(
+    151860002536,
+    "Priyanka Yadav",
+    500000,
+    2000
+  );
+  const account2 = new CurrentAccount(151860002537, "John Doe", 25000, 10000);
+  const account3 = new SavingAccount(151860002538, "Shriya Sam", 90000, 2000);
+  const account4 = new CurrentAccount(151860002539, "Sita Doe", 40000, 5000);
+  
+  console.log(
+    "Total Balance in Bank is: " +
+      totalBankBalance(account1, account2, account3, account4)
+  );
+
+
+
+
+   ASSIGNMENT 2
+
+1.const PreviousNo = Symbol('previousNo') ;  
+const CurrentNo = Symbol('currentNo') ;  
+class FibonacciSeries{  
+   constructor( previousNo, currentNo) {  
+     this [PreviousNo] = previousNo ;  
+     this [CurrentNo] = currentNo;   
+   }  
+   next (num) {  
+     let NextTerm 	  = 0 ;   
+     for(let i = 0 ; i  < num ; i++) {  
+       NextTerm= this[PreviousNo] +this [CurrentNo] ;  
+       this [PreviousNo] =this [CurrentNo] ;  
+       this [CurrentNo]= NextTerm;   
+     }
+     return this[CurrentNo] ;  
+   }  
+}  
+let fibo = new FibonacciSeries( 0 , 1) ;  
+console.log(fibo.next(100)) ;
+
+
+
+2.function getArmstrongNumbers(start,end) {
+    let armstrongArray = [];
+    for (let i = start; i <= end; i++) {
+        let numberOfDigits = i.toString().length;
+        let sum = 0;
+        let temp = i;
+        while ( temp > 0) {
+            let remainder = temp % 10;
+            sum += remainder ** numberOfDigits;
+            temp = parseInt( temp / 10) ;
+        }
+        if ( sum == i ) {
+            armstrongArray.push(i) ;
+        }
+    }
+        return armstrongArray;
+}
+    let getNextArmstrong = () => {
+        let count = 0
+        return {
+            next: () => {
+                let arr = getArmstrongNumbers( 100, 1000) ;
+                return count < arr.length ?
+                    { armstrong_value: arr[count++], done: false } :
+                    { value: undefined, done: true }
+            }
+        }
+    }
+const armstrongIterator = getNextArmstrong();
+console.log( armstrongIterator.next());
+console.log( armstrongIterator.next());
+console.log( armstrongIterator.next());
+
+
+
+3.function getArmstrongNumbers(start, end) {
+    let armstrongArray = [];
+    if(end > 1000) {
+        return 'Maximum l imit e xceeded'
+    }
+    for(let i = start; i <= end; i ++) {
+        let numberOfDigits = i.toString().length;
+        let sum = 0;
+        let temp = i;
+        while(temp > 0) {
+            let remainder = temp % 10;
+            sum += remainder ** numberOfDigits;
+            temp = parseInt(temp / 10);
+        }
+        if(sum == i) {
+            armstrongArray.push(i);
+        }
+    }
+    return armstrongArray;
+}
+let getNextArmstrong = () => {
+    let count = 0
+    return {
+        next: () => {
+            let arr = getArmstrongNumbers( 0 , 1000);
+                return count<arr.length ?
+                { 
+                    armstrong_value: arr[count++], done: false 
+                } :
+                    { 
+                        value: undefined, done: true
+                    }
+        }
+    }
+}
+const armstrongIterator = getNextArmstrong( );
+console.log(armstrongIterator.next());
+console.log(armstrongIterator.next());
+
+
+4.let chatroom1 = new Map();
+chatroom1.set('imran', {
+    msg1: " Hi everyone, I'm bob",
+    msg2: " How are you all?"
+});
+chatroom1.set('ned', {
+    msg1: " Hello, I'm ned",
+    msg2: " I'm fine",
+    msg3: " What do you do?"
+});
+chatroom1.set(' Charlie', {
+    msg1: " Hey, I'm Charlie",
+    msg2: " I'm good",
+    msg3: " I'm a Developer",
+    msg4: " Let's develop an application..."
+});
+let chatroom2 = new Map()
+    .set(' john', {
+        msg1: " Hey guys, I'm John",
+        msg2: " I'm from Canada",
+        msg3: " Tell me about yours..."
+    })
+    .set('Sam', {
+        msg1: " Hi, I'm Sam",
+        msg2: " I am from US"
+    });
+// To check all the users in chatroom1
+console.log(" Total users in chatroom1: " + chatroom1.size);
+// To list the users and messages
+for (let [key, value] of chatroom1) {
+    console.log(key, value);
+}
+// T o check all the users in chatroom2
+console.log(" Total users in chatroom2 : " + chatroom2.size)
+chatroom2.forEach((value, key, map) => {
+    console.log(` $ {key} `);
+    console.log(chatroom2.get(` $ {key} `));
+})
+// To get the messages of specific user
+console.log(chatroom1.get("imran"));
+// To check user is in chatroom or not
+console.log(chatroom1.has("ned"));
+// To delete the user from chatroom
+console.log(chatroom1.delete("Charlie"));
+// To clear the chatroom
+chatroom1.clear();
+console.log(" Total users in chatroom1: " + chatroom1.size);
+
+
+    ASSIGNMENT 3
+
+1.const sum = ( a , b ) => a + b;
+const first = new Promise((resolve, reject) => {
+const x = 5 ;
+if (x) resolve(x) ;
+else reject( x ) ;
+});
+const second = new Promise( (resolve, reject) => {
+const y = 10;
+if ( y ) resolve( y ) ;
+else reject( y ) ;
+});
+const allpromises = Promise. all( [first, second] );
+allpromises.then( success => console.log('sum:', sum(success[ 0 ] ,
+success[ 1 ] )))
+.catch( error => console.log('error:', error) )
+.finally(() => console.log( "Executed finally block"));
+
+
+2.class Account {
+    constructor(id, name, balance) {
+        this.id = id;
+        this.name = name;
+        this.balance = balance;
+    }
+}
+class SavingsAccount extends Account {
+    constructor(id, name, balance, interest) {
+        super(id, name, balance);
+        this.interest = interest;
+    }
+    totalBalance() {
+        let newBalance = this.balance * this.interest;
+        this.balance = this.balance + newBalance;
+        return this.balance
+    }
+}
+class CurrentAccount extends Account {
+    constructor(id, name, balance, cash_credit) {
+        super(id, name, balance);
+        this.cash_credit = cash_credit;
+    }
+    totalBalance() {
+        let newBalance = this.balance * this.cash_credit;
+        this.balance = this.balance + newBalance;
+        return this.balance;
+    }
+}
+var saving = new SavingsAccount(" 123456123456", "indrajeet", 200000, 1.5);
+var current = new CurrentAccount(" 654321654321", "bhanu", 500000, 0.5);
+console.log(saving.totalBalance());
+console.log(current.totalBalance());
+
+
+3.interface Printable {
+    name: string,
+    printAll: (string:string) => string
+}
+var circle: Printable = {
+    name: " ron",
+    printAll: (str) => { return "hi" + str }
+}
+var employee: Printable = {
+    name: " Harry ",
+    printAll: (str) => { return "hello" + str }
+}
+console.log(circle.printAll(circle.name))
+console.log(employee.printAll(employee.name))
